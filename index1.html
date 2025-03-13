@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Solar System Matching Game</title>
+  <!-- Google Font-->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+  <!-- Link to CSS file -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="timer">Time Left: 30s</div>
+  <div id="fixed-game-container">
+  <h1>Solar System Matching Game</h1>
+ <!-- Name Input Modal -->
+<div id="name-modal" class="modal">
+  <div class="modal-content">
+    <h2>Enter Your Name</h2>
+    <input type="text" id="player-name" placeholder="Your Name">
+    <button id="name-submit-button" class="menu-button">Submit</button>
+  </div>
+</div>
+
+
+  <!-- Container for Main Menu and Leaderboard -->
+  <div id="menu-container">
+    <!-- Leaderboard Placeholder -->
+    <div id="leaderboard">
+      <h2>Leaderboard</h2>
+    </div>
+    
+    <!-- Main Menu Box -->
+    <div id="main-menu">
+      <h2>Main Menu</h2>
+      <button id="menu-start" class="menu-button">Start Game</button>
+      <button id="menu-difficulty" class="menu-button">Difficulty</button>
+    </div>
+    
+  </div>
+  
+  <!-- Difficulty Menu Box -->
+  <div id="difficulty-menu">
+    <h3>Select Difficulty</h3>
+    <button id="difficulty-easy" class="menu-button">Easy</button>
+    <button id="difficulty-hard" class="menu-button">Hard</button>
+    <button id="difficulty-monkey" class="menu-button">Monkey</button>
+    <div id="difficulty-message" class="difficulty-message"></div>
+  </div>
+  <button id="back-menu-button" class="menu-button" style="display: none;">Main Menu</button>  </div>
+
+  <!-- Game Board -->
+  <div id="game-board"></div>
+
+  <!-- Custom Modal for Match Feedback -->
+<div id="match-modal" class="modal">
+  <div class="modal-content">
+    <p id="modal-text"></p>
+    <button id="play-again-button" class="menu-button" style="display: none;">Play Again</button>
+  </div>
+</div>
+
+  
+  <!-- Link to JavaScript file -->
+  <script type="module" src="script.js"></script>
+
+</body>
+</html>

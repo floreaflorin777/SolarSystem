@@ -1,0 +1,289 @@
+/* Global Styles */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+h1 {
+  width: 100%;
+  text-align: center;
+  /* keep your other existing styles here */
+}
+
+
+body {
+  font-family: 'Orbitron', sans-serif;
+  background: url('images/background.jpg') no-repeat center center fixed;
+  background-size: cover;
+  margin: 0;
+  padding: 20px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Title styling */
+h1 {
+  color: #fff;
+  text-shadow: 0 0 15px rgba(0, 255, 255, 0.8);
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+}
+
+#timer {
+  display: none;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.7);
+  border: 2px solid cyan;
+  padding: 10px 20px;
+  border-radius: 10px;
+  text-shadow: 0 0 10px cyan;
+  z-index: 250;
+}
+
+/* Menu Container */
+#menu-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Frosted Glass Effect for Menus */
+#main-menu, #leaderboard, #difficulty-menu {
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+  color: white;
+  text-align: center;
+}
+
+/* Hide Difficulty Menu Initially */
+#difficulty-menu {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 150;
+}
+
+/* Buttons */
+.menu-button { 
+  z-index: 9999;
+  margin: 10px;
+  padding: 12px 24px;
+  font-size: 1.1rem;
+  background: rgba(0, 0, 0, 0.3);
+  color: cyan;
+  border: 2px solid cyan;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+}
+
+.menu-button:hover {
+  background: rgba(0, 255, 255, 0.3);
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.8);
+  transform: scale(1.1);
+}
+
+/* Game Board */
+#game-board {
+  display: grid;
+  margin-top: 150px;
+  grid-template-columns: repeat(5, 120px); /* 5 columns for 10 cards */
+  grid-gap: 20px;
+  justify-content: center;
+  display: none;
+}
+
+/* Card Styling */
+.card {
+  width: 120px;
+  height: 160px;
+  perspective: 1000px;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  border-radius: 10px;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  transform: rotateY(180deg); /* Add this line */
+}
+
+
+.card.flipped .card-inner {
+  transform: rotateY(0deg);
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  backface-visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+}
+
+.card-front {
+  background-color: #fff;
+  color: #333;
+}
+
+.card-back {
+  background: linear-gradient(45deg, #00ffff, #0066ff);
+  color: white;
+  transform: rotateY(180deg);
+  font-size: 1em;
+}
+
+/* Modal Styling */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 200;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(5px);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.8);
+  color: cyan;
+  border: 2px solid cyan;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 0 15px cyan;
+}
+
+/* Name Modal input styling */
+#player-name {
+  width: 80%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 2px solid cyan;
+  border-radius: 5px;
+  background: rgba(0, 0, 0, 0.3);
+  color: #fff;
+  font-family: 'Orbitron', sans-serif;
+}
+
+#player-name:focus {
+  outline: none;
+  border-color: #00ffff;
+  box-shadow: 0 0 10px 2px rgba(0, 255, 255, 0.7)
+}
+
+#difficulty-message {
+  position: absolute;
+  top: -150px; /* Adjusted to appear higher */
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.3); /* Matching neon box style */
+  padding: 10px 15px;
+  border-radius: 10px;
+  font-weight: bold;
+  color: cyan;
+  text-shadow: 0 0 15px rgba(0, 255, 255, 0.8);
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+  opacity: 0; /* Initially hidden */
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+  z-index: 200;
+}
+
+.card-front img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 10px;
+}
+#modal-text {
+  white-space: pre-wrap;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* This removes both horizontal and vertical scrollbars */
+  position: relative;
+}
+
+#play-again-button {
+  margin-top: 1rem;
+}
+
+#back-menu-button {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 9999;
+  display: none;
+  /* same neon styles as .menu-button */
+}
+
+
+#fixed-game-container {
+  width: 100%;       /* Choose your fixed width */
+  height: 100%;       /* Choose your fixed height */
+  position: absolute;  
+  left: 0;           
+  top: 0;
+  transform: none;
+  /* optional: if you want a background here instead of <body> */
+  /* background: url('images/background.jpg') no-repeat center center; */
+  /* background-size: cover; */
+}
+@keyframes shuffleAnimation {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+    opacity: 0;
+  }
+  30% {
+    transform: translate(10px, -20px) rotate(5deg);
+    opacity: 1;
+  }
+  60% {
+    transform: translate(-10px, 20px) rotate(-5deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+}
+
+/* The .shuffle class uses those keyframes */
+.shuffle {
+  animation: shuffleAnimation 0.8s ease forwards;
+}
