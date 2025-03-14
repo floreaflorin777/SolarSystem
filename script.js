@@ -88,7 +88,7 @@ const difficultySettings = {
 let currentDifficulty = difficultySettings.easy;
 const humorousMessages = {
   'earth.jpg': "Earth: The blue gem where every match is out of this world!",
-  'venus.jpg': "Venus: lalalalalala",
+  'venus.jpg': "Venus: Radiant and enchanting—your allure shines brighter than the morning star!",
   'sun.jpg': "Sun: Blazing hot! Your matching skills are on fire!",
   'mercury.jpg': "Mercury: Quick and elusive, but you caught it in a flash!",
   'neptune.jpg': "Neptune: A quirky match indeed—stellar in every way!"
